@@ -20,8 +20,15 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dk);min-hei
 
 /* MAIN */
 .q-main{max-width:480px;margin:0 auto;padding:0}
-.step{display:block}.step.hidden{display:none}
-.si{padding:20px 20px 32px}.tc{text-align:center}
+.step{display:block;min-height:calc(100vh - 56px)}.step.hidden{display:none}
+.si{
+  padding:20px 20px 28px;
+  display:flex;
+  flex-direction:column;
+  min-height:calc(100vh - 56px);
+}
+.si .btn-c{margin-top:auto;padding-top:16px}
+.tc{text-align:center}
 
 /* TYPOGRAPHY */
 .s-tag{display:inline-block;background:var(--gl);color:var(--gd);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:99px;margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em}
@@ -29,18 +36,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dk);min-hei
 .s-sub{font-size:.85rem;color:var(--mu);margin-bottom:16px;line-height:1.6}
 
 /* HERO IMG */
-.hero-img{border-radius:var(--rad);overflow:hidden;margin-bottom:20px;height:220px}
-.hero-img img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.hero-img{border-radius:var(--rad);overflow:hidden;margin-bottom:20px}
+.hero-img img{width:100%;display:block;object-fit:contain;max-height:280px}
 
 /* INFO SCREENS */
-.info-img{border-radius:var(--rad);overflow:hidden;margin-bottom:14px;height:210px}
-.info-img img{width:100%;height:100%;object-fit:cover;object-position:center 15%;display:block}
-/* Ajuste por tela específica */
-#s3 .info-img img{object-position:center center}
-#s5 .info-img img{object-position:center 10%}
-#s7 .info-img img{object-position:center 20%}
-#s11 .info-img img{object-position:center 10%}
-#s13 .info-img img{object-position:center 15%}
+.info-img{border-radius:var(--rad);overflow:hidden;margin-bottom:14px}
+.info-img img{width:100%;display:block;object-fit:contain;max-height:260px}
 .info-card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rad);padding:16px;margin-bottom:14px;box-shadow:var(--sh)}
 .info-num{font-family:'Fraunces',serif;font-size:2.4rem;font-weight:700;color:var(--gd);margin-bottom:4px}
 .badge-green{display:inline-block;background:var(--gl);color:var(--gd);font-size:.78rem;font-weight:700;padding:5px 14px;border-radius:99px;margin-bottom:10px}
@@ -59,8 +60,12 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dk);min-hei
 
 /* OPTIONS IMAGE */
 .oig{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px}
-.oic{background:var(--wh);border:2px solid var(--bd);border-radius:var(--rad);overflow:hidden;cursor:pointer;transition:border-color .15s,transform .1s;display:flex;flex-direction:column;align-items:center}
-.oic img{width:100%;height:160px;object-fit:cover;object-position:center 15%}
+.oic{
+  background:var(--wh);border:2px solid var(--bd);border-radius:var(--rad);
+  overflow:hidden;cursor:pointer;transition:border-color .15s,transform .1s;
+  display:flex;flex-direction:column;align-items:center
+}
+.oic img{width:100%;object-fit:contain;max-height:200px;display:block}
 .oic span{padding:10px;font-weight:700;font-size:.9rem}
 .oic:hover{border-color:var(--g);transform:translateY(-2px)}
 
@@ -82,7 +87,14 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dk);min-hei
 .mo.sel{border-color:var(--g)!important;background:var(--gl)!important}
 
 /* BUTTON */
-.btn-c{display:block;width:100%;margin-top:20px;border:none;border-radius:var(--rad);padding:16px;font-size:1rem;font-weight:700;cursor:pointer;transition:opacity .2s,transform .1s;text-align:center}
+.btn-c{
+  display:block;width:100%;margin-top:20px;border:none;
+  border-radius:var(--rad);padding:16px;font-size:1rem;
+  font-weight:700;cursor:pointer;transition:opacity .2s,transform .1s;
+  text-align:center;flex-shrink:0
+}
+/* Quando o pai for flex (si), o btn empurra para o fundo */
+.si>.btn-c,.si>.eform+*,.og4~.btn-c,.ol~.btn-c,.og2~.btn-c{margin-top:auto}
 .btn-g{background:linear-gradient(135deg,var(--g),var(--gd));color:#fff}
 .btn-c:hover{opacity:.92;transform:translateY(-1px)}
 .btn-c.hidden{display:none}
