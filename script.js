@@ -99,9 +99,15 @@ function emailAns() {
 // S3: Social proof — adapta para gênero (se já respondido via S2)
 function renderS3() {
   const isMale = A.gender === 'male';
+  const img = document.querySelector('#s3 .info-img img');
   const num = document.querySelector('#s3 .info-num');
   const title = document.querySelector('#s3 .s-title');
   const sub = document.querySelector('#s3 .s-sub');
+  
+  if (img) img.src = isMale 
+    ? 'https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/options_1_image_1781249936006.png' 
+    : 'https://cdn.soonbody.com/media/b8mfhui5rakdfjvwdwub6rb7/original.png';
+    
   if (num) num.textContent = '1.000.000+';
   if (title) title.textContent = isMale
     ? 'homens já transformaram seus corpos'
