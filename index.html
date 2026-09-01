@@ -1,430 +1,395 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Seu Plano de Tai Chi Walking</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@600;700&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Seu Plano de Tai Chi Walking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+<header class="q-header">
+  <div class="q-header-inner">
+    <button class="q-back" id="btn-back" onclick="goBack()">← Voltar</button>
+    <div class="q-logo">🌿 Tai Chi Walking</div>
+    <div class="q-counter"><span id="step-num">1</span> de <span id="step-total">16</span></div>
+  </div>
+  <div class="q-prog-wrap"><div class="q-prog-bar" id="prog-bar"></div></div>
+</header>
 
-  <!-- HEADER -->
-  <header class="q-header" id="q-header">
-    <div class="q-header-inner">
-      <button class="q-back" id="btn-back" onclick="goBack()">← Voltar</button>
-      <div class="q-logo">🌿 Tai Chi Walking</div>
-      <div class="q-counter"><span id="step-num">1</span> de <span id="step-total">12</span></div>
+<main class="q-main">
+
+<!-- 1: IDADE -->
+<div class="step" id="s1">
+  <div class="si">
+    <div class="hero-img"><img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/heroImage_1781249883171.png" alt=""/></div>
+    <div class="s-tag">Desafio de Caminhada Tai Chi</div>
+    <h2 class="s-title">Com base na sua idade, vamos montar seu plano</h2>
+    <div class="og4">
+      <button class="oc" onclick="ans('age','40-49')">40–49</button>
+      <button class="oc" onclick="ans('age','50-59')">50–59</button>
+      <button class="oc" onclick="ans('age','60-69')">60–69</button>
+      <button class="oc" onclick="ans('age','70+')">70+</button>
     </div>
-    <div class="q-progress-wrap">
-      <div class="q-progress-bar" id="progress-bar"></div>
+  </div>
+</div>
+
+<!-- 2: GÊNERO -->
+<div class="step hidden" id="s2">
+  <div class="si">
+    <h2 class="s-title">Escolha o seu gênero</h2>
+    <div class="oig">
+      <button class="oic" onclick="ans('gender','female')">
+        <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/options_0_image_1781249931488.png" alt=""/>
+        <span>Feminino</span>
+      </button>
+      <button class="oic" onclick="ans('gender','male')">
+        <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/options_1_image_1781249936006.png" alt=""/>
+        <span>Masculino</span>
+      </button>
     </div>
-  </header>
+  </div>
+</div>
 
-  <!-- STEPS CONTAINER -->
-  <main class="q-main" id="q-main">
+<!-- 3: INFO - social proof -->
+<div class="step hidden" id="s3">
+  <div class="si">
+    <div class="info-img"><img src="https://cdn.soonbody.com/media/b8mfhui5rakdfjvwdwub6rb7/original.png" alt=""/></div>
+    <div class="info-card">
+      <div class="info-num">1.000.000+</div>
+      <h2 class="s-title">mulheres já transformaram seus corpos</h2>
+      <p class="s-sub">No seu grupo de idade já experimentaram o programa de Tai Chi Walking e conseguiram resultados reais.</p>
+      <div class="stars-row">★★★★★ <span>4,6 · 2.300+ avaliações</span></div>
+    </div>
+    <button class="btn-c btn-g" onclick="next()">Continuar →</button>
+  </div>
+</div>
 
-    <!-- STEP 1: IDADE -->
-    <div class="step" id="step-1">
-      <div class="step-inner">
-        <div class="step-hero-img">
-          <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/heroImage_1781249883171.png" alt="Tai Chi Walking"/>
+<!-- 4: JÁ PRATICOU? -->
+<div class="step hidden" id="s4">
+  <div class="si">
+    <h2 class="s-title">Já praticou o Tai Chi Walking antes?</h2>
+    <div class="ol">
+      <button class="or" onclick="ans('practiced','yes')"><span class="oi">✅</span> Sim</button>
+      <button class="or" onclick="ans('practiced','no')"><span class="oi">🆕</span> Não</button>
+    </div>
+  </div>
+</div>
+
+<!-- 5: INFO - você vai arrasar -->
+<div class="step hidden" id="s5">
+  <div class="si">
+    <div class="info-img"><img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/image_1781249984983.png" alt=""/></div>
+    <div class="info-card">
+      <div class="badge-green">💪 Perfeito para você!</div>
+      <h2 class="s-title">Você vai arrasar!</h2>
+      <p class="s-sub">Nosso programa de Caminhada Tai Chi é para todos os níveis. Sem equipamento, 10-15 min por dia — e os resultados aparecem rápido.</p>
+    </div>
+    <button class="btn-c btn-g" onclick="next()">Continuar →</button>
+  </div>
+</div>
+
+<!-- 6: OBJETIVO -->
+<div class="step hidden" id="s6">
+  <div class="si">
+    <h2 class="s-title">Qual é o seu principal objetivo?</h2>
+    <div class="ol">
+      <button class="or" onclick="ans('goal','lose-weight')"><span class="oi">🔥</span> Perder peso</button>
+      <button class="or" onclick="ans('goal','get-fit')"><span class="oi">💪</span> Manter o peso e ficar em forma</button>
+    </div>
+  </div>
+</div>
+
+<!-- 7: INFO - solução ideal -->
+<div class="step hidden" id="s7">
+  <div class="si">
+    <div class="info-img"><img src="https://cdn.soonbody.com/funnels/bxbk98nwe0iugqy0ac7prluh/image_1774022406563.webp" alt=""/></div>
+    <div class="info-card">
+      <div class="badge-green">🎯 Temos a solução ideal para você!</div>
+      <h2 class="s-title">10-15 minutos por dia para ver as primeiras mudanças</h2>
+      <p class="s-sub">Para mulheres na sua faixa etária, o Tai Chi Walking é a opção mais eficaz para emagrecer com o mínimo de esforço e sem impacto nas articulações.</p>
+    </div>
+    <button class="btn-c btn-g" onclick="next()">Continuar →</button>
+  </div>
+</div>
+
+<!-- 8: FOCO (multi) -->
+<div class="step hidden" id="s8">
+  <div class="si">
+    <h2 class="s-title">O que mais você gostaria de focar?</h2>
+    <p class="s-sub">Selecione todas as opções que se aplicam</p>
+    <div class="ol multi" id="focus-opts">
+      <button class="or mo" data-val="muscle"><span class="oi">💪</span> Ganhar força muscular</button>
+      <button class="or mo" data-val="mobility"><span class="oi">🦵</span> Manter a mobilidade</button>
+      <button class="or mo" data-val="stress"><span class="oi">😌</span> Reduzir o estresse e a ansiedade</button>
+      <button class="or mo" data-val="flexibility"><span class="oi">🤸</span> Desenvolver a flexibilidade</button>
+    </div>
+    <button class="btn-c btn-g" onclick="submitMulti('focus','focus-opts')">Continuar</button>
+  </div>
+</div>
+
+<!-- 9: ZONAS ALVO (multi) -->
+<div class="step hidden" id="s9">
+  <div class="si">
+    <h2 class="s-title">Quais são suas zonas alvo?</h2>
+    <p class="s-sub">Selecione todas que se aplicam</p>
+    <div class="og2 multi" id="zones-opts">
+      <button class="oz mo" data-val="arms"><span>💪</span><span>Braços</span></button>
+      <button class="oz mo" data-val="chest"><span>🫁</span><span>Peito</span></button>
+      <button class="oz mo" data-val="belly"><span>🍃</span><span>Barriga</span></button>
+      <button class="oz mo" data-val="legs"><span>🦵</span><span>Pernas</span></button>
+    </div>
+    <button class="btn-c btn-g" onclick="submitMulti('zones','zones-opts')">Continuar</button>
+  </div>
+</div>
+
+<!-- 10: PROBLEMAS (multi) -->
+<div class="step hidden" id="s10">
+  <div class="si">
+    <h2 class="s-title">Você tem algum problema físico?</h2>
+    <p class="s-sub">Selecione todos que se aplicam</p>
+    <div class="ol multi" id="pain-opts">
+      <button class="or mo" data-val="shoulders"><span class="oi">🦴</span> Ombros</button>
+      <button class="or mo" data-val="back"><span class="oi">🔙</span> Costas</button>
+      <button class="or mo" data-val="knees"><span class="oi">🦵</span> Joelhos</button>
+      <button class="or mo" data-val="ankles"><span class="oi">🦶</span> Tornozelos</button>
+      <button class="or mo" data-val="none"><span class="oi">✅</span> Nenhum problema</button>
+    </div>
+    <button class="btn-c btn-g" onclick="submitMulti('pain','pain-opts')">Continuar</button>
+  </div>
+</div>
+
+<!-- 11: INFO - pode contar com a gente -->
+<div class="step hidden" id="s11">
+  <div class="si">
+    <div class="info-img"><img src="https://cdn.soonbody.com/funnels/bxbk98nwe0iugqy0ac7prluh/image_1774022461101.webp" alt=""/></div>
+    <div class="info-card">
+      <div class="badge-green">💪 Pode contar com a gente!</div>
+      <h2 class="s-title">Diga adeus à tensão e olá para uma postura melhor</h2>
+      <p class="s-sub">Nossos exercícios de baixo impacto são desenvolvidos especificamente para apoiar e fortalecer seu corpo sem machucar articulações.</p>
+    </div>
+    <button class="btn-c btn-g" onclick="next()">Continuar →</button>
+  </div>
+</div>
+
+<!-- 12: ENERGIA -->
+<div class="step hidden" id="s12">
+  <div class="si">
+    <h2 class="s-title">Como estão seus níveis de energia durante o dia?</h2>
+    <div class="ol">
+      <button class="or" onclick="ans('energy','low')"><span class="oi">😴</span> Baixa — me sinto cansada o dia todo</button>
+      <button class="or" onclick="ans('energy','post-lunch')"><span class="oi">😪</span> Queda após o almoço</button>
+      <button class="or" onclick="ans('energy','before-meals')"><span class="oi">😑</span> Sem energia antes das refeições</button>
+      <button class="or" onclick="ans('energy','high')"><span class="oi">⚡</span> Alta e constante</button>
+    </div>
+  </div>
+</div>
+
+<!-- 13: INFO - energia -->
+<div class="step hidden" id="s13">
+  <div class="si">
+    <div class="info-img"><img src="https://cdn.soonbody.com/funnels/bxbk98nwe0iugqy0ac7prluh/image_1774022485512.webp" alt=""/></div>
+    <div class="info-card">
+      <div class="badge-green">⚡ Acabe com o cansaço de uma vez!</div>
+      <h2 class="s-title">Recupere sua energia — e mantenha ela</h2>
+      <p class="s-sub">Com o Tai Chi Walking, a maioria das mulheres relata aumento de energia já na primeira semana. Sem café extra, sem suplementos.</p>
+      <div class="stat-row">
+        <div class="stat-item"><strong>83%</strong><span>mais energia em 4 semanas</span></div>
+        <div class="stat-item"><strong>91%</strong><span>dormem melhor</span></div>
+      </div>
+    </div>
+    <button class="btn-c btn-g" onclick="next()">Continuar →</button>
+  </div>
+</div>
+
+<!-- 14: FREQUÊNCIA -->
+<div class="step hidden" id="s14">
+  <div class="si">
+    <h2 class="s-title">Com que frequência você se exercita atualmente?</h2>
+    <div class="ol">
+      <button class="or" onclick="ans('activity','daily')"><span class="oi">🏃</span> Quase todos os dias</button>
+      <button class="or" onclick="ans('activity','weekly')"><span class="oi">📅</span> Várias vezes por semana</button>
+      <button class="or" onclick="ans('activity','monthly')"><span class="oi">🗓️</span> Algumas vezes por mês</button>
+      <button class="or" onclick="ans('activity','never')"><span class="oi">😔</span> Nunca</button>
+    </div>
+  </div>
+</div>
+
+<!-- 15: ALTURA -->
+<div class="step hidden" id="s15">
+  <div class="si">
+    <h2 class="s-title">Qual é a sua altura?</h2>
+    <div class="callout"><span>👆</span><p>Usamos sua altura para calcular seu IMC e personalizar seu plano.</p></div>
+    <div class="iw"><input type="number" id="i-h" class="qi" placeholder="Ex: 165" min="100" max="230"/><span class="iu">cm</span></div>
+    <button class="btn-c btn-g" onclick="numAns('height','i-h',100,230)">Próximo Passo</button>
+  </div>
+</div>
+
+<!-- 16: PESO ATUAL -->
+<div class="step hidden" id="s16">
+  <div class="si">
+    <h2 class="s-title">Qual é o seu peso atual?</h2>
+    <div class="callout"><span>👆</span><p>Usamos seu peso para calcular seu IMC e montar seu plano ideal.</p></div>
+    <div class="iw"><input type="number" id="i-w" class="qi" placeholder="Ex: 75" min="30" max="250"/><span class="iu">kg</span></div>
+    <button class="btn-c btn-g" onclick="numAns('weight','i-w',30,250)">Próximo Passo</button>
+  </div>
+</div>
+
+<!-- 17: PESO IDEAL -->
+<div class="step hidden" id="s17">
+  <div class="si">
+    <h2 class="s-title">Qual é o seu peso ideal?</h2>
+    <div class="callout"><span>⭐️</span><p>Sua meta nos ajuda a calcular seu plano de forma realista e segura.</p></div>
+    <div class="iw"><input type="number" id="i-t" class="qi" placeholder="Ex: 65" min="30" max="250"/><span class="iu">kg</span></div>
+    <button class="btn-c btn-g" onclick="numAns('target','i-t',30,250)">Próximo Passo</button>
+  </div>
+</div>
+
+<!-- 18: LOADING -->
+<div class="step hidden" id="s18">
+  <div class="si tc">
+    <h2 class="s-title">Analisando suas respostas...</h2>
+    <p class="s-sub">Criando seu plano personalizado — aguarde alguns segundos.</p>
+    <div class="li-wrap">
+      <div class="li" id="li1"><span class="lic">○</span> Compilando seu perfil</div>
+      <div class="li" id="li2"><span class="lic">○</span> Calculando seu metabolismo</div>
+      <div class="li" id="li3"><span class="lic">○</span> Ajustando ao seu nível de atividade</div>
+      <div class="li" id="li4"><span class="lic">○</span> Criando plano personalizado</div>
+    </div>
+    <div class="lb-wrap"><div class="lb-fill" id="lb-fill"></div></div>
+    <div class="testi-box">
+      <div class="testi-top">
+        <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/testimonials_0_image_1776163846199.png" class="tav" alt=""/>
+        <div><strong>Elena R.</strong><br/><span class="stars-s">★★★★★</span></div>
+      </div>
+      <p class="tq">"Perdi 6kg em 5 semanas. Meu marido achou que eu fiz lipo. Foram só 10 min por dia de Tai Chi Walking."</p>
+    </div>
+  </div>
+</div>
+
+<!-- 19: PERFIL -->
+<div class="step hidden" id="s19">
+  <div class="si">
+    <div class="s-tag">⚠️ Análise Exclusiva</div>
+    <h2 class="s-title">Seu perfil foi analisado</h2>
+    <div class="pcard">
+      <div class="ph">
+        <img src="https://cdn.soonbody.com/media/gi9ag0o2sso8m9puak5raaoq/original.png" class="pav" alt=""/>
+        <div><div class="plbl">Seu Perfil</div><div class="pgoal">🎯 Potencial: <strong>5 a 7kg</strong> em 28 dias</div></div>
+      </div>
+      <div class="palert">⚠️ Seu metabolismo está lento. Sem ação, a tendência é ganhar <strong>+3-5kg</strong> em poucos meses.</div>
+      <div class="pstats">
+        <div class="psi"><span class="psl">Metabolismo</span><span class="psv red">Lento ⚠️</span></div>
+        <div class="psi"><span class="psl">Gordura</span><span class="psv yel">Acima</span></div>
+        <div class="psi"><span class="psl">Energia</span><span class="psv red" id="e-disp">Baixa ⚠️</span></div>
+      </div>
+      <div class="bmi-b"><div class="bmi-lbl">Seu IMC</div><div class="bmi-v" id="bmi-v">—</div><div class="bmi-c" id="bmi-c">Calculando...</div></div>
+      <div class="pred-b">
+        <div class="pred-lbl">🔮 Previsão com o programa</div>
+        <div class="tl">
+          <div class="ti"><span class="tw">Sem 1</span><span class="tr">Energia triplicada</span></div>
+          <div class="ti"><span class="tw">Sem 2</span><span class="tr">Roupas ficam soltas</span></div>
+          <div class="ti"><span class="tw">Sem 3</span><span class="tr">Até 3kg eliminados</span></div>
+          <div class="ti thl"><span class="tw">Sem 4</span><span class="tr">🎉 Corpo transformado!</span></div>
         </div>
-        <div class="step-tag">Desafio de Caminhada Tai Chi</div>
-        <h2 class="step-title">Qual é a sua idade?</h2>
-        <div class="options-grid">
-          <button class="opt-card" onclick="selectAnswer('age','40-49')">40–49</button>
-          <button class="opt-card" onclick="selectAnswer('age','50-59')">50–59</button>
-          <button class="opt-card" onclick="selectAnswer('age','60-69')">60–69</button>
-          <button class="opt-card" onclick="selectAnswer('age','70+')">70+</button>
+      </div>
+      <div class="purg">🕐 Seu plano expira em breve. <strong>Garanta agora.</strong></div>
+    </div>
+    <!-- Provas sociais -->
+    <div class="proof-section">
+      <div class="proof-title">Resultados Reais</div>
+      <div class="proof-cards">
+        <div class="proof-card">
+          <div class="pc-top"><img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/testimonials_0_image_1776163846199.png" class="pca" alt=""/><div><strong>Elena R.</strong><div class="stars-s">★★★★★</div></div><span class="vbadge">✓ Verificado</span></div>
+          <p>"Viajo muito e as rotinas me salvaram. Finalmente mantive consistência mesmo na correria!"</p>
+        </div>
+        <div class="proof-card">
+          <div class="pc-top"><img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/testimonials_1_image_1776163838311.png" class="pca" alt=""/><div><strong>Lauren H.</strong><div class="stars-s">★★★★★</div></div><span class="vbadge">✓ Verificado</span></div>
+          <p>"Simples, eficaz e encaixa na minha rotina. Perdi 5kg sem academia e sem dieta maluca."</p>
+        </div>
+        <div class="proof-card">
+          <div class="pc-top"><img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/testimonials_2_image_1776163850979.png" class="pca" alt=""/><div><strong>Nina K.</strong><div class="stars-s">★★★★★</div></div><span class="vbadge">✓ Verificado</span></div>
+          <p>"O alívio de estresse que realmente mostra resultado no espelho e no meu humor."</p>
         </div>
       </div>
     </div>
+    <button class="btn-c btn-g" onclick="next()">Ver Meu Plano →</button>
+  </div>
+</div>
 
-    <!-- STEP 2: GÊNERO -->
-    <div class="step hidden" id="step-2">
-      <div class="step-inner">
-        <h2 class="step-title">Escolha o seu gênero</h2>
-        <div class="options-img-grid">
-          <button class="opt-img-card" onclick="selectAnswer('gender','female')">
-            <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/options_0_image_1781249931488.png" alt="Feminino"/>
-            <span>Feminino</span>
-          </button>
-          <button class="opt-img-card" onclick="selectAnswer('gender','male')">
-            <img src="https://cdn.soonbody.com/funnels/bdfb6gk35zlxtspj0heaniug/options_1_image_1781249936006.png" alt="Masculino"/>
-            <span>Masculino</span>
-          </button>
-        </div>
+<!-- 20: EMAIL -->
+<div class="step hidden" id="s20">
+  <div class="si tc">
+    <div class="email-ic">📧</div>
+    <h2 class="s-title">Insira seu e-mail para receber seu Plano</h2>
+    <p class="s-sub">Seus dados estão 100% protegidos e nunca serão compartilhados.</p>
+    <div class="eform">
+      <input type="email" id="i-e" class="qi" placeholder="seu@email.com"/>
+      <button class="btn-c btn-g" onclick="emailAns()">Receber Meu Plano →</button>
+    </div>
+  </div>
+</div>
+
+<!-- 21: RASPADINHA -->
+<div class="step hidden" id="s21">
+  <div class="si tc">
+    <h2 class="s-title">Raspe seu desconto especial</h2>
+    <p class="s-sub">Preparamos uma surpresa para você começar sua transformação!</p>
+    <div class="sc-wrap">
+      <canvas id="sc-canvas" width="280" height="140"></canvas>
+      <div class="sc-rev"><div class="scr-lbl">Desconto</div><div class="scr-val">67% OFF</div><div class="scr-code">TAICHI67</div></div>
+    </div>
+    <p class="sc-hint" id="sc-hint">👆 Raspe aqui para revelar</p>
+    <button class="btn-c btn-g hidden" id="btn-sc" onclick="next()">Garantir Meu Desconto →</button>
+  </div>
+</div>
+
+<!-- 22: OFERTA -->
+<div class="step hidden" id="s22">
+  <div class="si">
+    <div class="s-tag">🔒 Oferta Exclusiva</div>
+    <h2 class="s-title">Garanta seu desconto agora</h2>
+    <p class="s-sub">Preço especial só para quem completou a análise.</p>
+    <div class="plans">
+      <div class="plc">
+        <div class="pln">Plano Básico</div><div class="pld">Acesso limitado</div>
+        <div class="plf">De <s>R$29,90</s></div><div class="plp">R$9,90</div>
+        <ul class="plu">
+          <li>✓ Rotinas diárias de Tai Chi</li>
+          <li>✓ Acompanhamento de progresso</li>
+          <li>✓ Acesso imediato</li>
+          <li class="fo">✗ Guia de alongamento</li>
+          <li class="fo">✗ Meditação guiada</li>
+          <li class="fo">✗ Plano anti-inchaço</li>
+          <li class="fo">✗ Suporte prioritário</li>
+        </ul>
+        <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="bpl">Começar com o Básico</a>
+      </div>
+      <div class="plc plf-c">
+        <div class="pop-b">🔥 87% ESCOLHEM ESTE</div>
+        <div class="pln">Plano Completo</div><div class="pld">Resultado 3x mais rápido</div>
+        <div class="plf">De <s>R$59,90</s> <span class="dtag">-67%</span></div><div class="plp grn">R$19,90</div>
+        <ul class="plu">
+          <li>✓ Rotinas diárias de Tai Chi</li>
+          <li>✓ Acompanhamento de progresso</li>
+          <li>✓ Acesso imediato</li>
+          <li class="fon">✓ Guia de alongamento</li>
+          <li class="fon">✓ Meditação guiada para sono</li>
+          <li class="fon">✓ Plano anti-inchaço de 7 dias</li>
+          <li class="fon">✓ Suporte prioritário 24h</li>
+        </ul>
+        <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="bpl bpl-m">⚡ Garantir Meu Acesso Completo</a>
+        <p class="psc">🔥 Restam poucas vagas com esse preço</p>
       </div>
     </div>
-
-    <!-- STEP 3: OBJETIVO -->
-    <div class="step hidden" id="step-3">
-      <div class="step-inner">
-        <h2 class="step-title">Qual é o seu principal objetivo?</h2>
-        <div class="options-list">
-          <button class="opt-row" onclick="selectAnswer('goal','lose-weight')">
-            <span class="opt-icon">🔥</span> Perder peso
-          </button>
-          <button class="opt-row" onclick="selectAnswer('goal','get-fit')">
-            <span class="opt-icon">💪</span> Manter o peso e ficar em forma
-          </button>
-        </div>
-      </div>
+    <div class="trust-f">
+      <p>🔒 Pagamento seguro · Visa · Master · Pix · PayPal</p>
+      <p>✅ Garantia de 30 dias · Cancele quando quiser</p>
     </div>
+  </div>
+</div>
 
-    <!-- STEP 4: FOCO -->
-    <div class="step hidden" id="step-4">
-      <div class="step-inner">
-        <h2 class="step-title">O que mais você gostaria de focar?</h2>
-        <p class="step-sub">Selecione todas as opções que se aplicam</p>
-        <div class="options-list multi" id="focus-opts">
-          <button class="opt-row multi-opt" data-val="muscle">
-            <span class="opt-icon">💪</span> Ganhar força muscular
-          </button>
-          <button class="opt-row multi-opt" data-val="mobility">
-            <span class="opt-icon">🦵</span> Manter a mobilidade
-          </button>
-          <button class="opt-row multi-opt" data-val="stress">
-            <span class="opt-icon">😌</span> Reduzir o estresse e a ansiedade
-          </button>
-          <button class="opt-row multi-opt" data-val="flexibility">
-            <span class="opt-icon">🤸</span> Desenvolver a flexibilidade
-          </button>
-        </div>
-        <button class="btn-continue" onclick="submitMulti('focus','focus-opts')">Continuar</button>
-      </div>
-    </div>
-
-    <!-- STEP 5: ZONAS ALVO -->
-    <div class="step hidden" id="step-5">
-      <div class="step-inner">
-        <h2 class="step-title">Quais são suas zonas alvo?</h2>
-        <p class="step-sub">Selecione todas que se aplicam</p>
-        <div class="options-grid-2 multi" id="zones-opts">
-          <button class="opt-zone multi-opt" data-val="arms">
-            <span>💪</span><span>Braços</span>
-          </button>
-          <button class="opt-zone multi-opt" data-val="chest">
-            <span>🫁</span><span>Peito</span>
-          </button>
-          <button class="opt-zone multi-opt" data-val="belly">
-            <span>🍃</span><span>Barriga</span>
-          </button>
-          <button class="opt-zone multi-opt" data-val="legs">
-            <span>🦵</span><span>Pernas</span>
-          </button>
-        </div>
-        <button class="btn-continue" onclick="submitMulti('zones','zones-opts')">Continuar</button>
-      </div>
-    </div>
-
-    <!-- STEP 6: PROBLEMAS FÍSICOS -->
-    <div class="step hidden" id="step-6">
-      <div class="step-inner">
-        <h2 class="step-title">Você tem algum problema físico?</h2>
-        <p class="step-sub">Selecione todos que se aplicam</p>
-        <div class="options-list multi" id="pain-opts">
-          <button class="opt-row multi-opt" data-val="shoulders">
-            <span class="opt-icon">🦴</span> Ombros
-          </button>
-          <button class="opt-row multi-opt" data-val="back">
-            <span class="opt-icon">🔙</span> Costas
-          </button>
-          <button class="opt-row multi-opt" data-val="knees">
-            <span class="opt-icon">🦵</span> Joelhos
-          </button>
-          <button class="opt-row multi-opt" data-val="ankles">
-            <span class="opt-icon">🦶</span> Tornozelos
-          </button>
-          <button class="opt-row multi-opt" data-val="none">
-            <span class="opt-icon">✅</span> Nenhum problema
-          </button>
-        </div>
-        <button class="btn-continue" onclick="submitMulti('pain','pain-opts')">Continuar</button>
-      </div>
-    </div>
-
-    <!-- STEP 7: ENERGIA -->
-    <div class="step hidden" id="step-7">
-      <div class="step-inner">
-        <h2 class="step-title">Como estão seus níveis de energia durante o dia?</h2>
-        <div class="options-list">
-          <button class="opt-row" onclick="selectAnswer('energy','low')">
-            <span class="opt-icon">😴</span> Baixa — me sinto cansada o dia todo
-          </button>
-          <button class="opt-row" onclick="selectAnswer('energy','post-lunch')">
-            <span class="opt-icon">😪</span> Queda após o almoço
-          </button>
-          <button class="opt-row" onclick="selectAnswer('energy','before-meals')">
-            <span class="opt-icon">😑</span> Sem energia antes das refeições
-          </button>
-          <button class="opt-row" onclick="selectAnswer('energy','high')">
-            <span class="opt-icon">⚡</span> Alta e constante
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 8: EXERCÍCIO -->
-    <div class="step hidden" id="step-8">
-      <div class="step-inner">
-        <h2 class="step-title">Com que frequência você se exercita?</h2>
-        <div class="options-list">
-          <button class="opt-row" onclick="selectAnswer('activity','daily')">
-            <span class="opt-icon">🏃</span> Quase todos os dias
-          </button>
-          <button class="opt-row" onclick="selectAnswer('activity','weekly')">
-            <span class="opt-icon">📅</span> Várias vezes por semana
-          </button>
-          <button class="opt-row" onclick="selectAnswer('activity','monthly')">
-            <span class="opt-icon">🗓️</span> Algumas vezes por mês
-          </button>
-          <button class="opt-row" onclick="selectAnswer('activity','never')">
-            <span class="opt-icon">😔</span> Nunca
-          </button>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 9: ALTURA -->
-    <div class="step hidden" id="step-9">
-      <div class="step-inner">
-        <h2 class="step-title">Qual é a sua altura?</h2>
-        <div class="callout-box">
-          <span>👆</span>
-          <p>Usamos sua altura para calcular seu IMC e personalizar seu plano.</p>
-        </div>
-        <div class="input-wrap">
-          <input type="number" id="input-height" class="q-input" placeholder="Ex: 165" min="100" max="230"/>
-          <span class="input-unit">cm</span>
-        </div>
-        <button class="btn-continue" onclick="submitNumber('height','input-height',100,230)">Próximo Passo</button>
-      </div>
-    </div>
-
-    <!-- STEP 10: PESO ATUAL -->
-    <div class="step hidden" id="step-10">
-      <div class="step-inner">
-        <h2 class="step-title">Qual é o seu peso atual?</h2>
-        <div class="callout-box">
-          <span>👆</span>
-          <p>Usamos seu peso para calcular seu IMC e montar seu plano ideal.</p>
-        </div>
-        <div class="input-wrap">
-          <input type="number" id="input-weight" class="q-input" placeholder="Ex: 75" min="30" max="250"/>
-          <span class="input-unit">kg</span>
-        </div>
-        <button class="btn-continue" onclick="submitNumber('weight','input-weight',30,250)">Próximo Passo</button>
-      </div>
-    </div>
-
-    <!-- STEP 11: PESO IDEAL -->
-    <div class="step hidden" id="step-11">
-      <div class="step-inner">
-        <h2 class="step-title">Qual é o seu peso ideal?</h2>
-        <div class="callout-box">
-          <span>⭐️</span>
-          <p>Sua meta nos ajuda a calcular seu plano de forma realista e segura.</p>
-        </div>
-        <div class="input-wrap">
-          <input type="number" id="input-target" class="q-input" placeholder="Ex: 65" min="30" max="250"/>
-          <span class="input-unit">kg</span>
-        </div>
-        <button class="btn-continue" onclick="submitNumber('target','input-target',30,250)">Próximo Passo</button>
-      </div>
-    </div>
-
-    <!-- STEP 12: LOADING -->
-    <div class="step hidden" id="step-12">
-      <div class="step-inner step-center">
-        <h2 class="step-title">Analisando suas respostas...</h2>
-        <p class="step-sub">Criando seu plano personalizado — aguarde alguns segundos.</p>
-        <div class="loading-steps" id="loading-steps">
-          <div class="loading-item" id="li-1">
-            <span class="li-check">○</span> Compilando seu perfil
-          </div>
-          <div class="loading-item" id="li-2">
-            <span class="li-check">○</span> Calculando seu metabolismo
-          </div>
-          <div class="loading-item" id="li-3">
-            <span class="li-check">○</span> Ajustando ao seu nível de atividade
-          </div>
-          <div class="loading-item" id="li-4">
-            <span class="li-check">○</span> Criando plano personalizado
-          </div>
-        </div>
-        <div class="loading-bar-wrap">
-          <div class="loading-bar-fill" id="loading-fill"></div>
-        </div>
-        <div class="loading-testimonial">
-          <div class="lt-stars">★★★★★</div>
-          <p class="lt-quote">"Perdi 6kg em 5 semanas. Meu marido achou que eu fiz lipo. Foram só 10 min por dia."</p>
-          <p class="lt-author">— Sarah B.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 13: PERFIL -->
-    <div class="step hidden" id="step-13">
-      <div class="step-inner">
-        <div class="section-tag">⚠️ Análise Exclusiva</div>
-        <h2 class="step-title">Seu perfil foi analisado</h2>
-
-        <div class="profile-card">
-          <div class="profile-head">
-            <img src="https://cdn.soonbody.com/media/gi9ag0o2sso8m9puak5raaoq/original.png" class="profile-av" alt="Perfil"/>
-            <div>
-              <div class="profile-lbl">Seu Perfil</div>
-              <div class="profile-goal">🎯 Potencial: <strong>5 a 7kg</strong> em 28 dias</div>
-            </div>
-          </div>
-
-          <div class="profile-alert">
-            ⚠️ Seu metabolismo está lento. Sem ação, a tendência é ganhar <strong>+3-5kg</strong> em poucos meses.
-          </div>
-
-          <div class="profile-stats">
-            <div class="ps-item">
-              <span class="ps-lbl">Metabolismo</span>
-              <span class="ps-val red">Lento ⚠️</span>
-            </div>
-            <div class="ps-item">
-              <span class="ps-lbl">Gordura</span>
-              <span class="ps-val yellow">Acima</span>
-            </div>
-            <div class="ps-item">
-              <span class="ps-lbl">Energia</span>
-              <span class="ps-val red" id="energy-display">Baixa ⚠️</span>
-            </div>
-          </div>
-
-          <div class="bmi-box">
-            <div class="bmi-label">Seu IMC</div>
-            <div class="bmi-value" id="bmi-value">—</div>
-            <div class="bmi-cat" id="bmi-cat">Calculando...</div>
-          </div>
-
-          <div class="prediction-box">
-            <div class="pred-label">🔮 Previsão com o programa</div>
-            <div class="pred-timeline">
-              <div class="tl-item">
-                <span class="tl-wk">Sem 1</span>
-                <span class="tl-r">Energia triplicada</span>
-              </div>
-              <div class="tl-item">
-                <span class="tl-wk">Sem 2</span>
-                <span class="tl-r">Roupas ficam soltas</span>
-              </div>
-              <div class="tl-item">
-                <span class="tl-wk">Sem 3</span>
-                <span class="tl-r">Até 3kg eliminados</span>
-              </div>
-              <div class="tl-item tl-hl">
-                <span class="tl-wk">Sem 4</span>
-                <span class="tl-r">🎉 Corpo transformado!</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="profile-urgency">
-            🕐 Seu plano expira em breve. <strong>Garanta agora.</strong>
-          </div>
-        </div>
-
-        <button class="btn-continue btn-green" onclick="nextStep()">Ver Meu Plano →</button>
-      </div>
-    </div>
-
-    <!-- STEP 14: EMAIL -->
-    <div class="step hidden" id="step-14">
-      <div class="step-inner step-center">
-        <div class="email-icon">📧</div>
-        <h2 class="step-title">Insira seu e-mail para receber seu Plano</h2>
-        <p class="step-sub">Seus dados estão 100% protegidos.</p>
-        <div class="email-form">
-          <input type="email" id="input-email" class="q-input" placeholder="seu@email.com"/>
-          <button class="btn-continue btn-green" onclick="submitEmail()">Receber Meu Plano →</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 15: RASPADINHA -->
-    <div class="step hidden" id="step-15">
-      <div class="step-inner step-center">
-        <h2 class="step-title">Raspe seu desconto especial</h2>
-        <p class="step-sub">Preparamos uma surpresa especial para você começar!</p>
-        <div class="scratch-wrap">
-          <canvas id="scratch-canvas" width="280" height="140"></canvas>
-          <div class="scratch-reveal" id="scratch-reveal">
-            <div class="sr-label">Desconto</div>
-            <div class="sr-value">67% OFF</div>
-            <div class="sr-code">TAICHI67</div>
-          </div>
-        </div>
-        <p class="scratch-hint" id="scratch-hint">👆 Raspe aqui para revelar</p>
-        <button class="btn-continue btn-green hidden" id="btn-after-scratch" onclick="nextStep()">Garantir Meu Desconto →</button>
-      </div>
-    </div>
-
-    <!-- STEP 16: OFERTA -->
-    <div class="step hidden" id="step-16">
-      <div class="step-inner">
-        <div class="section-tag">🔒 Oferta Exclusiva</div>
-        <h2 class="step-title">Garanta seu desconto agora</h2>
-        <p class="step-sub">Preço especial só para quem completou a análise.</p>
-
-        <div class="plans-wrap">
-          <!-- Básico -->
-          <div class="plan-card">
-            <div class="plan-name">Plano Básico</div>
-            <div class="plan-desc">Acesso limitado</div>
-            <div class="plan-from">De <s>R$29,90</s></div>
-            <div class="plan-price">R$9,90</div>
-            <ul class="plan-feats">
-              <li>✓ Rotinas diárias de Tai Chi</li>
-              <li>✓ Acompanhamento de progresso</li>
-              <li>✓ Acesso imediato</li>
-              <li class="feat-off">✗ Guia de alongamento</li>
-              <li class="feat-off">✗ Meditação guiada</li>
-              <li class="feat-off">✗ Plano anti-inchaço</li>
-              <li class="feat-off">✗ Suporte prioritário</li>
-            </ul>
-            <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="btn-plan" id="cta-basic">Começar com o Básico</a>
-          </div>
-
-          <!-- Completo -->
-          <div class="plan-card plan-featured">
-            <div class="pop-badge">🔥 87% ESCOLHEM ESTE</div>
-            <div class="plan-name">Plano Completo</div>
-            <div class="plan-desc">Resultado 3x mais rápido</div>
-            <div class="plan-from">De <s>R$59,90</s> <span class="disc-tag">-67%</span></div>
-            <div class="plan-price">R$19,90</div>
-            <ul class="plan-feats">
-              <li>✓ Rotinas diárias de Tai Chi</li>
-              <li>✓ Acompanhamento de progresso</li>
-              <li>✓ Acesso imediato</li>
-              <li class="feat-on">✓ Guia de alongamento</li>
-              <li class="feat-on">✓ Meditação guiada para sono</li>
-              <li class="feat-on">✓ Plano anti-inchaço de 7 dias</li>
-              <li class="feat-on">✓ Suporte prioritário 24h</li>
-            </ul>
-            <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="btn-plan btn-plan-main" id="cta-complete">⚡ Garantir Meu Acesso Completo</a>
-            <p class="plan-scarc">🔥 Restam poucas vagas com esse preço</p>
-          </div>
-        </div>
-
-        <div class="offer-trust">
-          <p>🔒 Pagamento seguro · Visa · Master · Pix · PayPal</p>
-          <p>✅ Garantia de 30 dias · Cancele quando quiser</p>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <script src="script.js"></script>
+</main>
+<script src="script.js"></script>
 </body>
 </html>
