@@ -351,3 +351,62 @@ function reveal() {
 
 // INIT
 document.addEventListener('DOMContentLoaded', () => showStep(1));
+
+// ─── UTM PASSTHROUGH ─────────────────────────────────────────────────────────
+function getUTMs() {
+  const p = new URLSearchParams(window.location.search);
+  const keys = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','fbclid','gclid','src'];
+  const out = {};
+  keys.forEach(k => { if (p.get(k)) out[k] = p.get(k); });
+  return out;
+}
+function appendUTMs(base) {
+  const utms = getUTMs();
+  if (!Object.keys(utms).length) return base;
+  return base + (base.includes('?') ? '&' : '?') + new URLSearchParams(utms).toString();
+}
+
+// ─── CHECKOUT ─────────────────────────────────────────────────────────────────
+const CHECKOUT_LINKS = {
+  basic:          'https://pay.wiapy.com/-PnUHN4yRxAz',
+  complete:       'https://pay.wiapy.com/q7QLltPFFVp',
+  complete_offer: 'https://pay.wiapy.com/EsjTV_UNEDw7'
+};
+
+function goCheckout(plan) {
+  closeUpsellNow();
+  window.location.href = appendUTMs(CHECKOUT_LINKS[plan]);
+}
+
+// ─── UPSELL POPUP ─────────────────────────────────────────────────────────────
+function openUpsell() {
+  const overlay = document.getElementById('upsell-overlay');
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'flex-end';
+  overlay.style.justifyContent = 'center';
+  const sheet = document.getElementById('upsell-sheet');
+  sheet.style.transform = 'translateY(100%)';
+  requestAnimationFrame(() => {
+    sheet.style.transition = 'transform 0.38s cubic-bezier(.22,1,.36,1)';
+    sheet.style.transform = 'translateY(0)';
+  });
+  document.body.style.overflow = 'hidden';
+}
+
+function closeUpsellNow() {
+  const overlay = document.getElementById('upsell-overlay');
+  if (!overlay) return;
+  overlay.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+function closeUpsell(e) {
+  if (e && e.target !== document.getElementById('upsell-overlay')) return;
+  const sheet = document.getElementById('upsell-sheet');
+  if (sheet) {
+    sheet.style.transform = 'translateY(100%)';
+    setTimeout(closeUpsellNow, 330);
+  } else {
+    closeUpsellNow();
+  }
+}

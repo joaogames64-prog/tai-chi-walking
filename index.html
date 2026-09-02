@@ -6,6 +6,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Fraunces:wght@600;700&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="style.css"/>
+<!-- Lowtrack Pixel -->
+<script>
+  window.pixelId = "lt_px_133e17d30d07";
+  var a = document.createElement("script");
+  a.setAttribute("async", "");
+  a.setAttribute("defer", "");
+  a.setAttribute("src", "https://lowtrack.com.br/pixel.js");
+  document.head.appendChild(a);
+</script>
 </head>
 <body>
 <header class="q-header">
@@ -363,12 +372,12 @@
           <li class="fo">✗ Plano anti-inchaço</li>
           <li class="fo">✗ Suporte prioritário</li>
         </ul>
-        <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="bpl">Começar com o Básico</a>
+        <button class="bpl" onclick="openUpsell()">Começar com o Básico</button>
       </div>
       <div class="plc plf-c">
         <div class="pop-b">🔥 87% ESCOLHEM ESTE</div>
         <div class="pln">Plano Completo</div><div class="pld">Resultado 3x mais rápido</div>
-        <div class="plf">De <s>R$59,90</s> <span class="dtag">-67%</span></div><div class="plp grn">R$19,90</div>
+        <div class="plf">De <s>R$59,90</s> <span class="dtag">-67%</span></div><div class="plp grn">R$14,90</div>
         <ul class="plu">
           <li>✓ Rotinas diárias de Tai Chi</li>
           <li>✓ Acompanhamento de progresso</li>
@@ -378,7 +387,7 @@
           <li class="fon">✓ Plano anti-inchaço de 7 dias</li>
           <li class="fon">✓ Suporte prioritário 24h</li>
         </ul>
-        <a href="https://soonbody.com/flow-tai-chi-walking/efd832rcsrq222k30nptpgpw" class="bpl bpl-m">⚡ Garantir Meu Acesso Completo</a>
+        <a href="#" class="bpl bpl-m" onclick="goCheckout('complete');return false;">⚡ Garantir Meu Acesso Completo</a>
         <p class="psc">🔥 Restam poucas vagas com esse preço</p>
       </div>
     </div>
@@ -390,6 +399,44 @@
 </div>
 
 </main>
+
+<!-- ═══════ UPSELL POPUP ═══════ -->
+<div id="upsell-overlay" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:flex-end;justify-content:center" onclick="closeUpsell(event)">
+  <div class="upsell-sheet" id="upsell-sheet">
+    <div class="upsell-handle"></div>
+    <div class="upsell-badge">⚡ ESPERE! Oferta especial para você</div>
+    <h3 class="upsell-title">Antes de sair com o básico...</h3>
+    <p class="upsell-sub">Sua análise mostrou que você tem <strong>potencial acima da média</strong> para resultados expressivos. Por isso, desbloqueamos o Plano Completo por apenas <strong>R$5,00 a mais</strong>.</p>
+    <div class="upsell-compare">
+      <div class="uc-item uc-old">
+        <span class="uc-plan">Básico</span>
+        <span class="uc-price">R$9,90</span>
+        <span class="uc-items">3 recursos</span>
+      </div>
+      <div class="uc-arrow">→</div>
+      <div class="uc-item uc-new">
+        <div class="uc-best"> MELHOR ESCOLHA</div>
+        <span class="uc-plan">Completo</span>
+        <span class="uc-price green">R$14,90</span>
+        <span class="uc-items">7 recursos</span>
+      </div>
+    </div>
+    <div class="upsell-includes">
+      <p>✓ Tudo do básico MAIS:</p>
+      <p>🧘 Meditação guiada para sono profundo</p>
+      <p>🤸 Guia de alongamento revitalizante</p>
+      <p>🥗 Plano anti-inchaço de 7 dias</p>
+      <p>💬 Suporte prioritário 24h</p>
+    </div>
+    <a href="#" class="upsell-btn-yes" onclick="goCheckout('complete');return false;">
+      ✅ Sim! Quero o Completo por R$14,90
+    </a>
+    <button class="upsell-btn-no" onclick="goCheckout('basic')">
+      Não, prefiro continuar só com o básico (R$9,90)
+    </button>
+  </div>
+</div>
+
 <script src="script.js"></script>
 </body>
 </html>
