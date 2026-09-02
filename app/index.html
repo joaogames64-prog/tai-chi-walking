@@ -67,10 +67,10 @@
     <!-- Days List View -->
     <template id="tpl-days">
         <div class="view-padding pb-safe">
-            <h2 class="page-title">Sua Jornada de 28 Dias</h2>
-            <p class="text-muted">Acompanhe seu progresso diário.</p>
-            <div id="days-container" class="days-grid mt-1">
-                <!-- Days injected by JS -->
+            <h2 class="page-title">Sua Jornada</h2>
+            <p class="text-muted">Acompanhe seu progresso por semanas.</p>
+            <div id="days-container" class="weeks-list mt-1">
+                <!-- Weeks injected by JS -->
             </div>
         </div>
     </template>
@@ -104,43 +104,37 @@
             <h2 class="page-title">Módulos Extras</h2>
             <p class="text-muted">Ferramentas para potencializar seus resultados.</p>
 
-            <div class="card mt-1 clickable" onclick="openExtra('stretch')">
-                <div class="card-row">
-                    <div class="card-icon">🧘‍♀️</div>
-                    <div>
-                        <h3 class="mt-0">Guia de Alongamento</h3>
-                        <p class="text-sm text-muted">Melhore a postura e relaxe a musculatura</p>
-                    </div>
+            <div class="card clickable mt-1 module-card" onclick="openExtra('stretch')">
+                <div class="module-cover" style="background-image: url('cover_stretch.png');"></div>
+                <div class="module-content">
+                    <h3 class="mt-0">Guia de Alongamento</h3>
+                    <p class="text-sm text-muted">Melhore a postura e relaxe a musculatura</p>
                 </div>
             </div>
 
-            <div class="card mt-1 clickable" onclick="openExtra('sleep')">
-                <div class="card-row">
-                    <div class="card-icon">🌙</div>
-                    <div>
-                        <h3 class="mt-0">Meditação para o Sono</h3>
-                        <p class="text-sm text-muted">Áudio guiado para sono profundo e reparador</p>
-                    </div>
+            <div class="card clickable mt-1 module-card" onclick="openExtra('sleep')">
+                <div class="module-cover" style="background-image: url('cover_sleep.png');"></div>
+                <div class="module-content">
+                    <h3 class="mt-0">Meditação para o Sono</h3>
+                    <p class="text-sm text-muted">Áudio guiado para sono profundo e reparador</p>
                 </div>
             </div>
 
-            <div class="card mt-1 clickable" onclick="openExtra('diet')">
-                <div class="card-row">
-                    <div class="card-icon">🥗</div>
-                    <div>
-                        <h3 class="mt-0">Plano Anti-Inchaço (7 Dias)</h3>
-                        <p class="text-sm text-muted">Alimentação leve e sem complicações</p>
-                    </div>
+            <div class="card clickable mt-1 module-card" onclick="openExtra('diet')">
+                <div class="module-cover" style="background-image: url('cover_diet.png');"></div>
+                <div class="module-content">
+                    <h3 class="mt-0">Plano Anti-Inchaço</h3>
+                    <p class="text-sm text-muted">Alimentação leve e sem complicações (7 Dias)</p>
                 </div>
             </div>
 
-            <div class="card mt-1 clickable" onclick="openExtra('faq')">
-                <div class="card-row">
-                    <div class="card-icon">❓</div>
-                    <div>
-                        <h3 class="mt-0">Dúvidas Frequentes (FAQ)</h3>
-                        <p class="text-sm text-muted">Respostas para as perguntas mais comuns</p>
-                    </div>
+            <div class="card clickable mt-1 module-card" onclick="openExtra('faq')">
+                <div class="module-cover faq-cover">
+                    <span class="faq-icon">❓</span>
+                </div>
+                <div class="module-content">
+                    <h3 class="mt-0">Dúvidas Frequentes (FAQ)</h3>
+                    <p class="text-sm text-muted">Respostas para as perguntas mais comuns</p>
                 </div>
             </div>
         </div>
