@@ -186,12 +186,8 @@ body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dk);min-hei
 /* SOCIAL PROOF */
 .proof-section{margin:20px 0}
 .proof-title{font-family:'Fraunces',serif;font-size:1.1rem;font-weight:700;color:var(--dk);margin-bottom:12px}
-.proof-cards{display:flex;flex-direction:column;gap:12px}
-.proof-card{background:var(--wh);border:1px solid var(--bd);border-radius:var(--rad);padding:14px;font-size:.83rem;color:var(--tx);line-height:1.6}
-.pc-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
-.pca{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid var(--gl);flex-shrink:0}
-.pc-top strong{font-size:.85rem;color:var(--dk)}
-.vbadge{margin-left:auto;background:var(--gl);color:var(--gd);font-size:.66rem;font-weight:700;padding:3px 8px;border-radius:99px;white-space:nowrap}
+.proof-screenshots{display:flex;flex-direction:column;gap:16px}
+.proof-ss{width:100%;display:block;border-radius:var(--rad);mix-blend-mode:multiply;border:1px solid rgba(0,0,0,0.04);box-shadow:var(--sh)}
 
 /* EMAIL */
 .email-ic{font-size:3rem;margin:16px 0}
