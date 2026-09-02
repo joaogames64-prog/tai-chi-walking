@@ -6,13 +6,13 @@ const weeksData = [
         title: 'Semana 1',
         subtitle: 'Fundamentos — foco em aprender a base',
         days: [
-            { day: 1,  title: 'O Primeiro Passo para a Transformação', duration: '~10 min', vid: 'ZUyX8ujn9X0', instructions: 'Mantenha os ombros relaxados e a coluna reta. Concentre-se em respirar profundamente. Hoje é sobre conectar a mente ao corpo, sem pressa.' },
-            { day: 2,  title: 'Despertando a Circulação', duration: '~10 min', vid: 'CDl2eYRzhnM', instructions: 'Sinta o peso sendo transferido de um pé para o outro suavemente. Mantenha os joelhos levemente destravados para garantir zero impacto.' },
-            { day: 3,  title: 'Equilíbrio e Leveza', duration: '~10 min', vid: '_QY2vKGf-vU', instructions: 'O seu foco hoje é a estabilidade. Se precisar, faça os movimentos perto de uma parede ou cadeira para se apoiar. Respire no ritmo dos seus passos.' },
-            { day: 4,  title: 'Soltando as Tensões', duration: '~15 min', vid: 'Veu9kvYi8NE', instructions: 'Movimente os braços com fluidez. Deixe qualquer estresse ir embora a cada expiração. A caminhada de hoje prepara os braços e o tronco.' },
-            { day: 5,  title: 'Conexão Postural', duration: '~10 min', vid: 'ULMIzFOPmv0', instructions: 'Levante o olhar e abra o peito. Comece o dia com leveza e energia. Sinta-se forte e presente desde a primeira respiração.' },
-            { day: 6,  title: 'Fluidez Corporal', duration: '~10 min', vid: 'qRyx1BP4q_A', instructions: 'Foque na sua respiração. A respiração correta melhora a circulação e relaxa o sistema nervoso, trazendo bem-estar.' },
-            { day: 7,  title: 'Fechamento da Primeira Semana', duration: '~15 min', vid: 'FxlVf_9zIG4', instructions: 'Celebre! Você completou sua primeira semana. Use este momento para refletir sobre como sua energia já começou a mudar.' },
+            { day: 1, title: 'O Primeiro Passo para a Transformação', duration: '~10 min', vid: 'ZUyX8ujn9X0', instructions: 'Mantenha os ombros relaxados e a coluna reta. Concentre-se em respirar profundamente. Hoje é sobre conectar a mente ao corpo, sem pressa.' },
+            { day: 2, title: 'Despertando a Circulação', duration: '~10 min', vid: 'CDl2eYRzhnM', instructions: 'Sinta o peso sendo transferido de um pé para o outro suavemente. Mantenha os joelhos levemente destravados para garantir zero impacto.' },
+            { day: 3, title: 'Equilíbrio e Leveza', duration: '~10 min', vid: '_QY2vKGf-vU', instructions: 'O seu foco hoje é a estabilidade. Se precisar, faça os movimentos perto de uma parede ou cadeira para se apoiar. Respire no ritmo dos seus passos.' },
+            { day: 4, title: 'Soltando as Tensões', duration: '~15 min', vid: 'Veu9kvYi8NE', instructions: 'Movimente os braços com fluidez. Deixe qualquer estresse ir embora a cada expiração. A caminhada de hoje prepara os braços e o tronco.' },
+            { day: 5, title: 'Conexão Postural', duration: '~10 min', vid: 'ULMIzFOPmv0', instructions: 'Levante o olhar e abra o peito. Comece o dia com leveza e energia. Sinta-se forte e presente desde a primeira respiração.' },
+            { day: 6, title: 'Fluidez Corporal', duration: '~10 min', vid: 'qRyx1BP4q_A', instructions: 'Foque na sua respiração. A respiração correta melhora a circulação e relaxa o sistema nervoso, trazendo bem-estar.' },
+            { day: 7, title: 'Fechamento da Primeira Semana', duration: '~15 min', vid: 'FxlVf_9zIG4', instructions: 'Celebre! Você completou sua primeira semana. Use este momento para refletir sobre como sua energia já começou a mudar.' },
         ]
     },
     {
@@ -20,8 +20,8 @@ const weeksData = [
         title: 'Semana 2',
         subtitle: 'Corpo Todo — consolidação, foco em queima e mobilidade',
         days: [
-            { day: 8,  title: 'Ativando o Centro de Força', duration: '~15 min', vid: 'D26kMza-8JI', instructions: 'Contraia levemente o abdômen ao caminhar. Isso protege sua lombar e ativa a musculatura que queima a gordurinha da barriga.' },
-            { day: 9,  title: 'Pernas Fortes, Articulações Seguras', duration: '~15 min', vid: 'H4EejjO0-h8', instructions: 'Foque em apoiar o calcanhar primeiro e depois a ponta do pé. Isso garante que seus joelhos fiquem sempre protegidos.' },
+            { day: 8, title: 'Ativando o Centro de Força', duration: '~15 min', vid: 'D26kMza-8JI', instructions: 'Contraia levemente o abdômen ao caminhar. Isso protege sua lombar e ativa a musculatura que queima a gordurinha da barriga.' },
+            { day: 9, title: 'Pernas Fortes, Articulações Seguras', duration: '~15 min', vid: 'H4EejjO0-h8', instructions: 'Foque em apoiar o calcanhar primeiro e depois a ponta do pé. Isso garante que seus joelhos fiquem sempre protegidos.' },
             { day: 10, title: 'Oxigenação Total', duration: '~15 min', vid: 'UnAB3jxIj5g', instructions: 'Inspire em dois passos, expire em dois passos. O aumento de oxigênio nas células é o segredo para melhorar o metabolismo hoje.' },
             { day: 11, title: 'Desenhando os Braços', duration: '~15 min', vid: 'p--htl7-CYo', instructions: 'Essa sequência de Qigong ativa a energia vital e melhora o ânimo. Deixe o corpo fluir com naturalidade.' },
             { day: 12, title: 'Acelerando o Ritmo Interno', duration: '~15 min', vid: 'WER0Gjw0zuE', instructions: 'Hoje o foco é a abertura e o alongamento. Se sentir cansaço, diminua o tamanho do passo, mas tente não parar.' },

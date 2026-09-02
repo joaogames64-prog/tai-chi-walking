@@ -263,9 +263,53 @@ h1, h2, h3, h4 {
     background: var(--wh);
     border: 1px solid rgba(0,0,0,0.04);
     border-radius: var(--rad);
-    padding: 20px;
+    overflow: hidden;
     box-shadow: var(--sh);
+    position: relative;
 }
+.week-cover {
+    width: 100%;
+    height: 140px;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--gl);
+}
+.week-body {
+    padding: 16px 20px 20px;
+}
+/* Locked state */
+.week-section.locked {
+    opacity: 0.85;
+}
+.week-lock-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(3px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border-radius: var(--rad);
+}
+.lock-icon {
+    font-size: 2.4rem;
+}
+.lock-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    color: #fff;
+    font-weight: 700;
+}
+.lock-msg {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.85);
+}
+.lock-msg strong {
+    color: #fff;
+}
+
 .week-title {
     font-size: 1.3rem;
     color: var(--gd);
