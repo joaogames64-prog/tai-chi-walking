@@ -3,168 +3,190 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Tai Chi Walking - App</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+    <title>Tai Chi Walking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/app/style.css">
 </head>
 <body>
 <div class="mobile-wrapper">
-    <!-- Topbar -->
-    <header class="topbar">
-        <h1 class="app-title">Tai Chi Walking</h1>
-    </header>
 
     <!-- Main Content Area -->
-    <main class="app-content" id="app-content">
-        <!-- Views will be injected here via JS -->
-    </main>
+    <main class="app-content" id="app-content"></main>
 
     <!-- Bottom Navigation Bar -->
-    <nav class="bottom-nav">
-        <button class="nav-item active" onclick="navigate('home')">
-            <span class="nav-icon">🏠</span>
+    <nav class="bottom-nav" id="bottom-nav">
+        <button class="nav-item active" id="nav-home" onclick="navigate('home')">
+            <span class="nav-icon">⊞</span>
             <span class="nav-label">Início</span>
         </button>
-        <button class="nav-item" onclick="navigate('days')">
-            <span class="nav-icon">📅</span>
+        <button class="nav-item" id="nav-days" onclick="navigate('days')">
+            <span class="nav-icon">▶</span>
             <span class="nav-label">Jornada</span>
         </button>
-        <button class="nav-item" onclick="navigate('extras')">
-            <span class="nav-icon">✨</span>
-            <span class="nav-label">Extras</span>
+        <button class="nav-item" id="nav-extras" onclick="navigate('extras')">
+            <span class="nav-icon">✦</span>
+            <span class="nav-label">Bônus</span>
         </button>
-        <button class="nav-item" onclick="navigate('progress')">
-            <span class="nav-icon">📈</span>
+        <button class="nav-item" id="nav-progress" onclick="navigate('progress')">
+            <span class="nav-icon">◎</span>
             <span class="nav-label">Progresso</span>
         </button>
     </nav>
 
-    <!-- View Templates (Hidden) -->
-    
-    <!-- Home View -->
+    <!-- ═══════════════ TEMPLATES ═══════════════ -->
+
+    <!-- HOME -->
     <template id="tpl-home">
-        <div class="view-padding">
-            <h2 class="page-title">Bem-vinda à sua nova jornada!</h2>
-            <div class="card">
-                <p>Olá! Estamos muito felizes em ter você conosco. O método <strong>Tai Chi Walking</strong> foi desenhado especialmente para mulheres como você, que buscam reacender o metabolismo, recuperar a energia e emagrecer de forma gentil e eficaz, sem impacto nas articulações.</p>
-                <br>
-                <h3>Como usar o app:</h3>
-                <ul class="home-list">
-                    <li><strong>Siga a ordem:</strong> Na aba "Jornada", acesse a tela correspondente ao seu dia. Reserve poucos minutos, respire fundo e aperte o play.</li>
-                    <li><strong>Registre seu progresso:</strong> Clique em "Concluí o dia" ao terminar, e vá para a aba "Progresso" anotar suas vitórias.</li>
-                    <li><strong>Seja gentil com seu corpo:</strong> Vá no seu próprio ritmo. Os resultados vêm da constância, não do excesso de esforço.</li>
-                </ul>
+        <div class="home-view">
+            <!-- Hero -->
+            <div class="home-hero">
+                <div class="home-hero-overlay"></div>
+                <div class="home-hero-content">
+                    <p class="home-greeting" id="home-greeting">Bom dia ☀️</p>
+                    <h1 class="home-title">Tai Chi Walking</h1>
+                    <p class="home-sub">Método de 28 dias</p>
+                </div>
             </div>
 
-            <div class="alert card">
-                <strong>Aviso Médico:</strong> Os resultados variam. Este programa não substitui orientações médicas. Se você tem condições severas (como artrose grave), consulte seu médico antes de iniciar.
-            </div>
+            <!-- Continue Card -->
+            <div class="home-body">
+                <div class="continue-card" id="continue-card" onclick="goToNextDay()">
+                    <div class="continue-left">
+                        <span class="continue-label">CONTINUAR</span>
+                        <span class="continue-day" id="continue-day-label">Dia 1</span>
+                        <span class="continue-title" id="continue-day-title">O Primeiro Passo</span>
+                    </div>
+                    <div class="continue-arrow">▶</div>
+                </div>
 
-            <button class="btn-primary mt-1" onclick="navigate('days')">Começar Hoje</button>
+                <!-- Stats Strip -->
+                <div class="stats-strip">
+                    <div class="stat-item">
+                        <span class="stat-num" id="stat-done">0</span>
+                        <span class="stat-label">Concluídos</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" id="stat-streak">0</span>
+                        <span class="stat-label">Dias</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" id="stat-left">28</span>
+                        <span class="stat-label">Restantes</span>
+                    </div>
+                </div>
+
+                <!-- Quick Access -->
+                <p class="section-label">BÔNUS RÁPIDOS</p>
+                <div class="quick-row">
+                    <div class="quick-card" onclick="openExtra('sleep')">
+                        <div class="quick-cover" style="background-image:url('cover_sleep.png')"></div>
+                        <span class="quick-title">Sono</span>
+                    </div>
+                    <div class="quick-card" onclick="openExtra('stretch')">
+                        <div class="quick-cover" style="background-image:url('cover_stretch.png')"></div>
+                        <span class="quick-title">Alongamento</span>
+                    </div>
+                    <div class="quick-card" onclick="openExtra('diet')">
+                        <div class="quick-cover" style="background-image:url('cover_diet.png')"></div>
+                        <span class="quick-title">Anti-inchaço</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </template>
 
-    <!-- Days List View -->
+    <!-- DAYS / JORNADA -->
     <template id="tpl-days">
-        <div class="view-padding pb-safe">
-            <h2 class="page-title">Sua Jornada</h2>
-            <p class="text-muted">Acompanhe seu progresso por semanas.</p>
-            <div id="days-container" class="weeks-list mt-1">
-                <!-- Weeks injected by JS -->
+        <div class="scroll-view pb-safe">
+            <div class="screen-header">
+                <h2 class="screen-title">Sua Jornada</h2>
             </div>
+            <div id="days-container" class="weeks-list"></div>
         </div>
     </template>
 
-    <!-- Single Day View -->
+    <!-- DAY DETAIL -->
     <template id="tpl-day-detail">
-        <div class="day-detail-view pb-safe">
-            <button class="btn-back" onclick="navigate('days')">← Voltar</button>
-            <div class="video-container" id="video-wrapper">
-                <!-- iFrame injected here -->
-            </div>
-            <div class="view-padding">
-                <div class="day-header">
-                    <span class="day-badge" id="day-badge">Dia X</span>
-                    <span class="day-duration" id="day-duration">10 min</span>
+        <div class="detail-view pb-safe">
+            <button class="floating-back" onclick="navigate('days')">‹</button>
+            <div class="detail-video-wrap" id="video-wrapper"></div>
+            <div class="detail-body">
+                <div class="detail-tags">
+                    <span class="tag-pill" id="day-badge">Dia 1</span>
+                    <span class="tag-pill tag-muted" id="day-duration">10 min</span>
                 </div>
-                <h2 class="day-title mt-05" id="day-title">Título</h2>
-                <div class="card mt-1">
-                    <h3>Instruções de hoje:</h3>
-                    <p id="day-instructions" class="mt-05"></p>
-                </div>
-                
-                <button class="btn-primary mt-1" id="btn-complete" onclick="completeDay()">Concluí o dia</button>
+                <h2 class="detail-title" id="day-title"></h2>
+                <p class="detail-instructions" id="day-instructions"></p>
+                <button class="btn-complete" id="btn-complete" onclick="completeDay()">
+                    ✓ &nbsp; Concluí o dia
+                </button>
             </div>
         </div>
     </template>
 
-    <!-- Extras View -->
+    <!-- EXTRAS -->
     <template id="tpl-extras">
-        <div class="view-padding pb-safe">
-            <h2 class="page-title">Módulos Extras</h2>
-            <p class="text-muted">Ferramentas para potencializar seus resultados.</p>
-
-            <div class="card clickable mt-1 module-card" onclick="openExtra('stretch')">
-                <div class="module-cover" style="background-image: url('cover_stretch.png');"></div>
-                <div class="module-content">
-                    <h3 class="mt-0">Guia de Alongamento</h3>
-                    <p class="text-sm text-muted">Melhore a postura e relaxe a musculatura</p>
-                </div>
+        <div class="scroll-view pb-safe">
+            <div class="screen-header">
+                <h2 class="screen-title">Bônus</h2>
             </div>
-
-            <div class="card clickable mt-1 module-card" onclick="openExtra('sleep')">
-                <div class="module-cover" style="background-image: url('cover_sleep.png');"></div>
-                <div class="module-content">
-                    <h3 class="mt-0">Meditação para o Sono</h3>
-                    <p class="text-sm text-muted">Áudio guiado para sono profundo e reparador</p>
+            <div class="extras-grid">
+                <div class="extra-card" onclick="openExtra('sleep')">
+                    <div class="extra-cover" style="background-image:url('cover_sleep.png')"></div>
+                    <div class="extra-info">
+                        <span class="extra-tag">Meditação</span>
+                        <p class="extra-name">Sono Profundo</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card clickable mt-1 module-card" onclick="openExtra('diet')">
-                <div class="module-cover" style="background-image: url('cover_diet.png');"></div>
-                <div class="module-content">
-                    <h3 class="mt-0">Plano Anti-Inchaço</h3>
-                    <p class="text-sm text-muted">Alimentação leve e sem complicações (7 Dias)</p>
+                <div class="extra-card" onclick="openExtra('stretch')">
+                    <div class="extra-cover" style="background-image:url('cover_stretch.png')"></div>
+                    <div class="extra-info">
+                        <span class="extra-tag">Alongamento</span>
+                        <p class="extra-name">Revitalizante</p>
+                    </div>
                 </div>
-            </div>
-
-            <div class="card clickable mt-1 module-card" onclick="openExtra('faq')">
-                <div class="module-cover faq-cover">
-                    <span class="faq-icon">❓</span>
+                <div class="extra-card extra-wide" onclick="openExtra('diet')">
+                    <div class="extra-cover" style="background-image:url('cover_diet.png')"></div>
+                    <div class="extra-info">
+                        <span class="extra-tag">Nutrição</span>
+                        <p class="extra-name">Plano Anti-inchaço 7 Dias</p>
+                    </div>
                 </div>
-                <div class="module-content">
-                    <h3 class="mt-0">Dúvidas Frequentes (FAQ)</h3>
-                    <p class="text-sm text-muted">Respostas para as perguntas mais comuns</p>
+                <div class="extra-card extra-wide" onclick="openExtra('faq')">
+                    <div class="extra-cover extra-cover-faq"></div>
+                    <div class="extra-info">
+                        <span class="extra-tag">Suporte</span>
+                        <p class="extra-name">Dúvidas Frequentes</p>
+                    </div>
                 </div>
             </div>
         </div>
     </template>
 
-    <!-- Extra Detail View -->
+    <!-- EXTRA DETAIL -->
     <template id="tpl-extra-detail">
-        <div class="day-detail-view pb-safe">
-            <button class="btn-back" onclick="navigate('extras')">← Voltar</button>
-            <div class="view-padding" id="extra-content-wrapper">
-                <!-- Content injected here -->
-            </div>
+        <div class="detail-view pb-safe">
+            <button class="floating-back" onclick="navigate('extras')">‹</button>
+            <div id="extra-content-wrapper"></div>
         </div>
     </template>
 
-    <!-- Progress View -->
+    <!-- PROGRESS -->
     <template id="tpl-progress">
-        <div class="view-padding pb-safe">
-            <h2 class="page-title">Seu Progresso</h2>
-            <p class="text-muted">Registre seus números a cada 7 dias para visualizar a sua transformação!</p>
-            
-            <div class="progress-list mt-1" id="progress-container">
-                <!-- Progress cards injected here -->
+        <div class="scroll-view pb-safe">
+            <div class="screen-header">
+                <h2 class="screen-title">Meu Progresso</h2>
             </div>
-            
-            <button class="btn-danger mt-1" onclick="resetProgress()">Reiniciar Progresso do App</button>
+            <div id="progress-container" class="progress-list"></div>
+            <div style="padding:0 20px 20px">
+                <button class="btn-reset" onclick="resetProgress()">Reiniciar tudo</button>
+            </div>
         </div>
     </template>
 
-</div> <!-- End mobile-wrapper -->
-    <script src="/app/app.js"></script>
+</div>
+<script src="/app/app.js"></script>
 </body>
 </html>
