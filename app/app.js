@@ -1,7 +1,6 @@
-// ─── DATA ────────────────────────────────────────────────────────────────────
 const weeksData = [
     {
-        week: 1, title: 'Semana 1', subtitle: 'Fundamentos', cover: 'cover_week1.png',
+        week: 1, title: 'Semana 1', subtitle: 'Fundamentos', cover: '/app/cover_week1.png',
         days: [
             { day: 1,  title: 'O Primeiro Passo', duration: '~10 min', vid: 'ZUyX8ujn9X0', instructions: 'Mantenha os ombros relaxados e a coluna reta. Concentre-se em respirar profundamente. Hoje é sobre conectar a mente ao corpo, sem pressa.' },
             { day: 2,  title: 'Despertando a Circulação', duration: '~10 min', vid: 'CDl2eYRzhnM', instructions: 'Sinta o peso sendo transferido de um pé para o outro suavemente. Mantenha os joelhos levemente destravados para garantir zero impacto.' },
@@ -13,7 +12,7 @@ const weeksData = [
         ]
     },
     {
-        week: 2, title: 'Semana 2', subtitle: 'Queima & Mobilidade', cover: 'cover_week2.png',
+        week: 2, title: 'Semana 2', subtitle: 'Queima & Mobilidade', cover: '/app/cover_week2.png',
         days: [
             { day: 8,  title: 'Centro de Força', duration: '~15 min', vid: 'D26kMza-8JI', instructions: 'Contraia levemente o abdômen ao caminhar. Isso protege sua lombar e ativa a queima abdominal.' },
             { day: 9,  title: 'Pernas Seguras', duration: '~15 min', vid: 'H4EejjO0-h8', instructions: 'Apoie o calcanhar primeiro, depois a ponta do pé. Seus joelhos sempre protegidos.' },
@@ -25,7 +24,7 @@ const weeksData = [
         ]
     },
     {
-        week: 3, title: 'Semana 3', subtitle: 'Articulações & Calma', cover: 'cover_week3.png',
+        week: 3, title: 'Semana 3', subtitle: 'Articulações & Calma', cover: '/app/cover_week3.png',
         days: [
             { day: 15, title: 'Cuidado Articular', duration: '~10 min', vid: 'kwkCZ91pzCA', instructions: 'Movimentos suaves desenvolvidos para joelhos e quadril. Flua com cuidado.' },
             { day: 16, title: 'Equilíbrio Profundo', duration: '~10 min', vid: 'BTHbqxrT96Q', instructions: 'Continue os movimentos básicos com foco total no equilíbrio e estabilidade.' },
@@ -37,7 +36,7 @@ const weeksData = [
         ]
     },
     {
-        week: 4, title: 'Semana 4', subtitle: 'Resultado Final', cover: 'cover_week4.png',
+        week: 4, title: 'Semana 4', subtitle: 'Resultado Final', cover: '/app/cover_week4.png',
         days: [
             { day: 22, title: 'Queima Abdominal', duration: '~15 min', vid: 'eEKxILjthas', instructions: 'Bem-vinda à reta final! Beba água antes. Mantenha ritmo sustentável.' },
             { day: 23, title: 'Movimento Constante', duration: '~20 min', vid: '0cLLejSM2fo', instructions: 'Músculos mais resistentes. Foque na técnica para articulações sempre seguras.' },
@@ -233,7 +232,7 @@ function openExtra(extraId) {
 
     const wrapper = document.getElementById('extra-content-wrapper');
 
-    const covers = { sleep: 'cover_sleep.png', stretch: 'cover_stretch.png', diet: 'cover_diet.png' };
+    const covers = { sleep: '/app/cover_sleep.png', stretch: '/app/cover_stretch.png', diet: '/app/cover_diet.png' };
     const cover = covers[extraId];
     let heroHtml = cover
         ? `<div class="extra-detail-hero" style="background-image:url('${cover}')"><div class="extra-detail-hero-overlay"></div></div>`

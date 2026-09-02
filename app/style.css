@@ -94,7 +94,7 @@ body {
     content: '';
     position: absolute;
     inset: 0;
-    background: url('cover_week1.png') center/cover;
+    background: url('/app/cover_week1.png') center/cover;
     opacity: 0.25;
 }
 .home-hero-overlay {
